@@ -10,16 +10,74 @@
 
     <title>eCommerce Product Detail</title>
 
- <!-- Bootstrap CSS -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
+	<!-- Custom styles for this template -->
+	<link href="heroes.css" rel="stylesheet">
+
+
+	  
   </head>
 
-  <body>
+  <body onload="initializePage()">
+	<main>
+
+	<div class="container text-center">
+			<button type="button" class="btn btn-primary btn-lg" id="survey-button" onclick="sleepSurvey()">Sleep Survey</button>
+			<button type="button" class="btn btn-secondary btn-lg" id="analysis-button" onclick="sleepAnalysis()">Sleep Analysis</button>
+			<button type="button" class="btn btn-secondary btn-lg" id="solutions-button" onclick="sleepSolutionss()">Sleep Solutions</button>
+
+	</div>
+
+	<div id="DeepSleep-Survey">
+		<div class="px-4 py-5 my-5 text-center">
+			<h1 class="display-5 fw-bold">DeepSleep Survey</h1>
+			<div class="col-lg-6 mx-auto">
+			  <p class="lead mb-4"><b>Answer a short quiz to see what your sleep really looks like!</b></p>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="card">
+				<label for="customRange3" class="form-label"><b>1.&nbsp &nbsp How refreshed do you feel?</b></label>
+				<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+				<hr>
+				<label for="customRange3" class="form-label"><b>2.&nbsp &nbsp How much did you dream?</b></label>
+				<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+				<hr>
+				<label for="customRange3" class="form-label"><b>3.&nbsp &nbsp How much and how often were you awake?</b></label>
+				<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+				<hr>
+				<label for="customRange3" class="form-label"><b>4.&nbsp &nbsp How relaxed do your muscles feel?</b></label>
+				<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+			</div>		
+		</div>
+
+	</div>	
+
+	<div id="DeepSleep-Analysis">
+		<div class="px-4 py-5 my-5 text-center">
+			<h1 class="display-5 fw-bold">DeepSleep Analysis</h1>
+			<div class="col-lg-6 mx-auto">
+			  <p class="lead mb-4"><b>Here is a summary of your sleep results</b></p>
+			</div>
+		</div>
+	</div>	
 	
+	<div id="DeepSleep-Solutions">
+
+	<div class="px-4 py-5 my-5 text-center">
+		<h1 class="display-5 fw-bold">DeepSleep Solutions</h1>
+		<div class="col-lg-6 mx-auto">
+		  <p class="lead mb-4"><b>Browse our solutions to navigate your unique sleep needs.</b></p>
+		</div>
+	</div>
+
+
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -52,7 +110,19 @@
 							</div>
 							<span class="review-no">41 trials</span>
 						</div>
-						<p class="product-description">The Ooler by Chillisleep is the reigning champion of bed coolers.  If you sleep hot, and want to really drive in your deep sleep, reduce your number of awakenings, and just generally feel more rested, there's nothing in the market better than Oooler!  This water cooling system circulates chilled or heated water through a modified mattress pad according to a schedule that you can set in the Ooler App (iPhone and Android versions available).  It works like a charm for hot sleepers!</p>
+						<p class="product-description">We love love love the Ooler bed chiller by Chillisleep!  It appears to be the reigning champion of bed chillers, 
+							and it's not cheap but  
+
+							<a class="btn btn-light" data-toggle="collapse" href="#more-ooler" aria-expanded="false" aria-controls="more-oura">
+								...
+							</a>
+							<div class="collapse" id="more-ooler">
+							If you sleep hot, and want to really drive in your deep sleep, reduce your number of awakenings, and just generally feel more rested, 
+							there's nothing in the market better than Oooler!  This water cooling system circulates chilled or heated water through a 
+							modified mattress pad according to a schedule that you can set in the Ooler App (iPhone and Android versions available).  
+							It works like a charm for hot sleepers!
+							</div>
+						</p>
 						<h4 class="price">Current Price: <span>$799</span></h4>
 						<p class="vote"><strong>91%</strong> of the DeepSleep Community found this product to be effective! <strong>(87 votes)</strong></p>
 						<div class="action">
@@ -96,9 +166,17 @@
 							<span class="review-no">96 trials</span>
 						</div>
 						<p class="product-description">MAGTECH®'s magnesium stack is the best magnesium source we've found for propelling yourself into deep-sleep early in the night,
-							without any negative side-effects.  According to MAGTECH®, their product is the purest, most bioavailable magnesium supplement on the planet. 
+							without any negative side-effects.  
+							
+							<a class="btn btn-light" data-toggle="collapse" href="#more-magtech" aria-expanded="false" aria-controls="more-oura">
+								...
+							</a>
+							<div class="collapse" id="more-magtech">
+							According to MAGTECH®, their product is the purest, most bioavailable magnesium supplement on the planet. 
 							It features the three types of magnesium known to have the highest absorption rates: L-Threonate, Taurate, and Glycinate. 
-							Use MAGTECH® to restore your levels, elevate your brain health and improve your sleep!</p>
+							Use MAGTECH® to restore your levels, elevate your brain health and improve your sleep!
+							</div>
+						</p>
 						<h4 class="price">Current Price: <span>$34.95</span></h4>
 						<p class="vote"><strong>98%</strong> of the DeepSleep Community found this product to be effective! <strong>(25 votes)</strong></p>
 						<div class="action">
@@ -141,13 +219,22 @@
 							</div>
 							<span class="review-no">46 trials</span>
 						</div>
-						<p class="product-description">We've found Oura's smart ring to be one of the least obtrusive yet most accurate ways to track your sleep.
-							The relatively normal/non-tech-looking rings, which now come in a variety of colors and materials and finishes, use small sensors to 
-							track your movement, heart-rate and skin temperature.  From this data it provides an estimate your sleep architecture and 'readiness'.
-							Oura Rings communicate with the Oura App which runs our your iPhone or Android phone using Bluetooth.  The whole solution provides for 
-							about a week of unobtrusive sleep measurement between charges, and charging is relatively fast (approx 1 hour) and convenient using
-							the provided Oura ring-charger.
+						<p class="product-description">There are more sleep trackers on the market than ever before, but we've found Oura's smart ring to be one of the 
+							least obtrusive yet highest-accuracy ways to chart your snooze.
+
+
+							<a class="btn btn-light" data-toggle="collapse" href="#more-oura" aria-expanded="false" aria-controls="more-oura">
+								...
+							</a>
+							<div class="collapse" id="more-oura">
+								The relatively normal/non-tech-looking rings, which now come in a variety of colors and materials and finishes, use small sensors to 
+								track your movement, heart-rate and skin temperature.  From this data it provides an estimate your sleep architecture and 'readiness'.
+								Oura Rings communicate with the Oura App which runs our your iPhone or Android phone using Bluetooth.  The whole solution provides for 
+								about a week of unobtrusive sleep measurement between charges, and charging is relatively fast (approx 1 hour) and convenient using
+								the provided Oura ring-charger.
+							</div>
 						</p>
+
 						<h4 class="price">Current Price: <span>$299</span></h4>
 						<p class="vote"><strong>82%</strong> of the DeepSleep Community found this product to be effective! <strong>(5 votes)</strong></p>
 						<div class="action">
@@ -160,11 +247,13 @@
 		</div>
 	</div>
 
-	<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</div>
 
+	</main>
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
   </body>
 </html>
