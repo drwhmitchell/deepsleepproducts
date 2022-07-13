@@ -1,5 +1,14 @@
 
 /*****************globals*************/
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+}
+
+
+
 body {
   font-family: 'open sans';
   overflow-x: hidden; }
