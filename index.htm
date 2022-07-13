@@ -42,6 +42,15 @@
 
 		<div class="container mt-0 pt-0">
 			<div class="card pt-3">
+
+				<label for="appt" class="form-label"><b>1.&nbsp &nbsp When did you sleep/wake?</b></label>
+				<div class="container">
+					<label><b>Sleep Onset &nbsp &nbsp</b></label>
+					<input type="time" id="sleep-onset" value="22:00" name="sleep-onset" min="01:00" max="18:00" required style="width: 20%;">
+					<input type="time" id="wake" value="06:00" name="wake" min="01:00" max="24:00" required style="width: 20%;" class="float-right">
+					<label class="float-right"><b>Wake &nbsp &nbsp</b></label>
+				</div>
+<!--
 				<label for="customRange1" class="form-label"><b>1.&nbsp &nbsp When did you sleep/wake?</b></label>
 				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange1" value="1" list="tickmarks1">
 				<datalist id="tickmarks1">
@@ -51,9 +60,10 @@
 					<option value="4"></option>
 					<option value="5" label="Extremely"></option>
 				  </datalist>
+-->
 				<hr>
 				<label for="customRange2" class="form-label"><b>2.&nbsp &nbsp How much did you dream?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange2" value="1" list="tickmarks2">
+				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange2" value="3" list="tickmarks2">
 				<datalist id="tickmarks2">
 					<option value="1" label="None at All"></option>
 					<option value="2"></option>
@@ -63,7 +73,7 @@
 				  </datalist>
 				<hr>
 				<label for="customRange3" class="form-label"><b>3.&nbsp &nbsp How much were you awake?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" value="1" list="tickmarks3">
+				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" value="3" list="tickmarks3">
 				<datalist id="tickmarks3">
 					<option value="1" label="Too Much!"></option>
 					<option value="2"></option>
@@ -73,7 +83,7 @@
 				  </datalist>
 				<hr>
 				<label for="customRange4" class="form-label"><b>4.&nbsp &nbsp How refreshed do you feel?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange4" value="1" list="tickmarks4">
+				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange4" value="3" list="tickmarks4">
 				<datalist id="tickmarks4">
 					<option value="1" label="Not at all"></option>
 					<option value="2"></option>
