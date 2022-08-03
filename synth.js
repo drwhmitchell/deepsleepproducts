@@ -1,4 +1,3 @@
-
 //  SYNTH.JS - Javascript lib for synthesizing Sleep Architectures
 
 // Population Data Sleep Averages by Age
