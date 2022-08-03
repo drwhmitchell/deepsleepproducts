@@ -81,6 +81,9 @@ function sleepSurvey() {
 }
 
 function sleepAnalysis() {
+
+  console.log("Sleep Analysis"));
+
     // Show the analysis, hide the analysis and Solutions 
     const surveyEl = document.getElementById("DeepSleep-Survey"); 
     const analysisEl = document.getElementById("DeepSleep-Analysis");  
@@ -103,6 +106,9 @@ function sleepAnalysis() {
 }
 
 function sleepSolutionss() {
+
+  console.log("Sleep Solutions"));
+
   // Show the solutions, hide the analysis and Solutions 
   const surveyEl = document.getElementById("DeepSleep-Survey"); 
   const analysisEl = document.getElementById("DeepSleep-Analysis");  
