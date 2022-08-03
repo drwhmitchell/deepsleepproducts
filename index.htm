@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.0/chartjs-adapter-moment.min.js"></script> 
+ 
 
     <title>eCommerce Product Detail</title>
 
@@ -43,57 +47,120 @@
 		<div class="container mt-0 pt-0">
 			<div class="card pt-3">
 
-				<label for="appt" class="form-label"><b>1.&nbsp &nbsp When did you sleep/wake?</b></label>
+				<label for="ageRange" class="form-label"><b>1.&nbsp &nbsp What is your AGE?</b></label>
+				<input type="range" class="form-range" min="20" max="80" step="1" id="ageRange" value="50" list="ageRangeTicks">
+				<datalist id="ageRangeTicks">
+					<option value="20" label="20"></option>
+					<option value="30"></option>
+					<option value="40"></option>
+					<option value="50" label="50"></option>
+					<option value="60"></option>
+					<option value="70"></option>
+					<option value="80" label="80"></option>
+				  </datalist>
+				<hr>
+				<label for="appt" class="form-label"><b>2.&nbsp &nbsp When did you get IN/OUT of BED?</b></label>
 				<div class="container">
-					<label><b>Sleep Onset &nbsp &nbsp</b></label>
-					<input type="time" id="sleep-onset" value="22:00" name="sleep-onset" min="01:00" max="18:00" required style="width: 20%;">
-					<input type="time" id="wake" value="06:00" name="wake" min="01:00" max="24:00" required style="width: 20%;" class="float-right">
-					<label class="float-right"><b>Wake &nbsp &nbsp</b></label>
+					<label><b>In-Bed Time &nbsp &nbsp</b></label>
+					<input type="time" id="inBedTime" value="22:00" name="sleep-onset" min="01:00" max="18:00" required style="width: 20%;">
+					<input type="time" id="outOfBedTime" value="06:00" name="wake" min="01:00" max="24:00" required style="width: 20%;" class="float-right">
+					<label class="float-right"><b>Out-of-Bed Time &nbsp &nbsp</b></label>
 				</div>
-<!--
-				<label for="customRange1" class="form-label"><b>1.&nbsp &nbsp When did you sleep/wake?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange1" value="1" list="tickmarks1">
-				<datalist id="tickmarks1">
-					<option value="1" label="Not Very"></option>
-					<option value="2"></option>
-					<option value="3" label="Typical"></option>
-					<option value="4"></option>
-					<option value="5" label="Extremely"></option>
-				  </datalist>
--->
 				<hr>
-				<label for="customRange2" class="form-label"><b>2.&nbsp &nbsp How much did you dream?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange2" value="3" list="tickmarks2">
-				<datalist id="tickmarks2">
-					<option value="1" label="None at All"></option>
-					<option value="2"></option>
-					<option value="3" label="Typical"></option>
-					<option value="4"></option>
-					<option value="5" label="Dreamsville"></option>
+				<label for="sleepOnsetRange" class="form-label"><b>3.&nbsp &nbsp How many minutes did it take for you to FALL ASLEEP?</b></label>
+				<input type="range" class="form-range" min="0" max="30" step="1" id="sleepOnsetRange" value="15" list="sleepOnsetRangeTicks">
+				<datalist id="sleepOnsetRangeTicks">
+					<option value="0" label="0"></option>
+					<option value="5"></option>
+					<option value="10"></option>
+					<option value="15" label="15"></option>
+					<option value="20"></option>
+					<option value="25"></option>
+					<option value="30" label=">30"></option>
 				  </datalist>
 				<hr>
-				<label for="customRange3" class="form-label"><b>3.&nbsp &nbsp How much were you awake?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" value="3" list="tickmarks3">
-				<datalist id="tickmarks3">
-					<option value="1" label="Too Much!"></option>
-					<option value="2"></option>
-					<option value="3" label="Typical"></option>
-					<option value="4"></option>
-					<option value="5" label="Wakeless"></option>
+				<label for="wakeUpRange" class="form-label"><b>4.&nbsp &nbsp How many minutes did it take for you to WAKE UP?</b></label>
+				<input type="range" class="form-range" min="1" max="30" step="1" id="wakeUpRange" value="3" list="wakeUpRangeTicks">
+				<datalist id="wakeUpRangeTicks">
+					<option value="0" label="0"></option>
+					<option value="5"></option>
+					<option value="10"></option>
+					<option value="15" label="15"></option>
+					<option value="20"></option>
+					<option value="25"></option>
+					<option value="30" label=">30"></option>
 				  </datalist>
 				<hr>
-				<label for="customRange4" class="form-label"><b>4.&nbsp &nbsp How refreshed do you feel?</b></label>
-				<input type="range" class="form-range" min="1" max="5" step="1" id="customRange4" value="3" list="tickmarks4">
-				<datalist id="tickmarks4">
-					<option value="1" label="Not at all"></option>
-					<option value="2"></option>
-					<option value="3" label="Typical"></option>
-					<option value="4"></option>
-					<option value="5" label="Really!"></option>
+				<label for="wakeNumRange" class="form-label"><b>5.&nbsp &nbsp How many times did you AWAKEN during the night?</b></label>
+				<input type="range" class="form-range" min="0" max="5" step="1" id="wakeNumRange" value="3" list="wakeNumRangeTicks">
+				<datalist id="wakeNumRangeTicks">
+					<option value="0" label="None"></option>
+					<option value="2" label="1"></option>
+					<option value="2" label="2"></option>
+					<option value="3" label="3"></option>
+					<option value="4" label="4"></option>
+					<option value="5" label="More"></option>
 				  </datalist>
+				  <hr>
+				  <label for="wasoRange" class="form-label"><b>6.&nbsp &nbsp How many minutes did it take for you to RETURN TO SLEEP?</b></label>
+				  <input type="range" class="form-range" min="0" max="30" step="1" id="wasoRange" value="15" list="wasoRangeTicks">
+				  <datalist id="wasoRangeTicks">
+					  <option value="0" label="None"></option>
+					  <option value="5"></option>
+					  <option value="10"></option>
+					  <option value="15" label="15"></option>
+					  <option value="20"></option>
+					  <option value="25"></option>
+					  <option value="30" label=">30"></option>
+					</datalist>
+					<hr>
+					<label for="dreamRange" class="form-label"><b>7.&nbsp &nbsp How much did you DREAM?</b></label>
+					<input type="range" class="form-range" min="1" max="5" step="1" id="dreamRange" value="3" list="dreamRangeTicks">
+					<datalist id="dreamRangeTicks">
+						<option value="1" label="None at All"></option>
+						<option value="2"></option>
+						<option value="3" label="Typical"></option>
+						<option value="4"></option>
+						<option value="5" label="Dreamsville"></option>
+					  </datalist>
+					<hr>
+					<label for="muscleRange" class="form-label"><b>8.&nbsp &nbsp How refreshed do your MUSCLES FEEL?</b></label>
+					<input type="range" class="form-range" min="1" max="5" step="1" id="muscleRange" value="3" list="muscleRangeTicks">
+					<datalist id="muscleRangeTickes">
+						<option value="1" label="Not Very"></option>
+						<option value="2"></option>
+						<option value="3" label="Normal"></option>
+						<option value="4"></option>
+						<option value="5" label="Very Much"></option>
+					  </datalist>
+					<hr>
+					<label for="moodRange" class="form-label"><b>9.&nbsp &nbsp How POSITIVE is your MOOD?</b></label>
+					<input type="range" class="form-range" min="1" max="5" step="1" id="moodRange" value="3" list="moodRangeTicks">
+					<datalist id="moodRangeTicks">
+						<option value="1" label="Not Very"></option>
+						<option value="2"></option>
+						<option value="3" label="Medium"></option>
+						<option value="4"></option>
+						<option value="5" label="Extremely"></option>
+					  </datalist>
+					<hr>				
+					<label for="overallRange" class="form-label"><b>10.&nbsp &nbsp Please RATE YOUR SLEEP on a scale of 1-10 (10 is Fantastic)</b></label>
+					<input type="range" class="form-range" min="1" max="10" step="1" id="overallRange" value="6" list="overallRangeTicks">
+					<datalist id="overallRangeTicks">
+						<option value="1" label="1"></option>
+						<option value="2" label="2"></option>
+						<option value="3" label="3"></option>
+						<option value="4" label="4"></option>
+						<option value="5" label="5"></option>
+						<option value="6" label="6"></option>
+						<option value="7" label="7"></option>
+						<option value="8" label="8"></option>
+						<option value="9" label="9"></option>
+						<option value="10" label="10"></option>
+					  </datalist>	
 
 				  <div class="mt-3 pt-3 pb-0 container text-center">
-					<button type="button" class="btn btn-primary btn-lg" id="analyze-sleep" onclick="analyzeSleep()">Analyze my Sleep</button>
+					<button type="button" class="btn btn-primary btn-lg" id="analyze-sleep" onclick="sleepAnalysis()">Analyze my Sleep</button>
 				</div>
 			</div>
 		</div>		
@@ -107,6 +174,23 @@
 			<div class="col-lg-6 mx-auto mb-0">
 			  <p class="lead mb-0"><b>Here is our analysis of your likely sleep architecture.</b></p>
 			</div>
+
+			<div id="sleep-data">
+				<div class="card">
+				  <div class="card-body">
+		  			<div id="lastSleep-amt"> </div>  
+					<div id="chart-area1">  </div>
+					<div id="chart-area2">  </div>
+					<div id="chart-area3">  </div>
+					<div id="chart-area4">  </div>
+					<div id="chart-area5">  </div>
+					<div id="chart-area6">  </div>
+					<div id="chart-area7">  </div>
+					<div id="chart-area8">  </div>
+				  </div>
+				</div>      
+			  </div>
+		  
 		</div>
 	</div>
 
@@ -297,5 +381,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="main.js"></script>
+	<script src="synth.js"></script>
+	<script src="sleepcharts.js"></script>
+
+
   </body>
 </html>
